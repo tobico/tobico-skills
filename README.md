@@ -1,6 +1,6 @@
 # tobico-skills
 
-A small Claude Code plugin bundling three workflow skills:
+Three workflow skills, distributed as [vercel-labs/skills](https://github.com/vercel-labs/skills):
 
 - **`to-tasks`** — Break a plan, spec, or PRD into sequential local task files under `.tasks/`, checked into the repo. Companion to `next-task`.
 - **`next-task`** — Pick up and implement the next sequential task from `.tasks/`. TDD-style with a hard approval gate before commit.
@@ -9,11 +9,10 @@ A small Claude Code plugin bundling three workflow skills:
 ## Install
 
 ```
-/plugin marketplace add tobico/tobico-skills
-/plugin install tobico-skills@tobico-skills
+npx skills add tobico/tobico-skills
 ```
 
-Once installed, invoke the skills by name: `/to-tasks`, `/next-task`, `/confirm`. If a name collides with something else in your setup, use the namespaced form: `/tobico-skills:next-task`.
+Pick the skills to install from the interactive list. Once installed, invoke them by name: `/to-tasks`, `/next-task`, `/confirm`.
 
 ## Workflow
 
