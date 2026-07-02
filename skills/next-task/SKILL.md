@@ -1,6 +1,6 @@
 ---
 name: next-task
-description: Pick up and implement the next sequential task from .tasks/. TDD-style with a hard approval gate before commit; deletes the task file on commit and prompts the user to clear the context before the next task. Use when user says "next task", "work on the next one", or "start the next task".
+description: Pick up and implement the next sequential task from .tasks/. TDD-style with a hard approval gate before commit; deletes the task file on commit and prompts the user to clear the context before the next task. When the final task is completed, prompts the user to finish the feature and open a draft PR instead. Use when user says "next task", "work on the next one", or "start the next task".
 ---
 
 # Next Task
@@ -17,14 +17,7 @@ The most important thing this skill enforces: **one task per context window**. A
 
 Look in `.tasks/`. The "next task" is the **lowest-numbered `NN-*.md` file that still exists** (excluding `TODO.md`).
 
-If no numbered task files remain: the feature is done. Delete `TODO.md` and the (now-empty) `.tasks/` directory in a final commit:
-
-    git rm .tasks/TODO.md
-    rmdir .tasks
-    git add -A
-    git commit -m "chore: finish <feature-name>"
-
-Then stop.
+If no numbered task files remain, the feature is already done — a previous session must have skipped the finish gate. Jump straight to **step 8 (finish gate)** to clean up and open the PR.
 
 ### 2. Read the task
 
@@ -63,13 +56,39 @@ Delete the task file, check off the entry in `TODO.md`, then commit both alongsi
 
 Choose a conventional-commit type (`feat`, `fix`, `refactor`, `test`, `docs`, `chore`).
 
-### 6. ⛔ CONTEXT-CLEAR GATE — STOP HERE
+### 6. Check if this was the last task
 
-After the commit succeeds, tell the user:
+After the commit succeeds, look in `.tasks/` for any remaining `NN-*.md` files (excluding `TODO.md`).
+
+- **If numbered task files remain:** go to step 7 (context-clear gate).
+- **If none remain:** the feature is done — go to step 8 (finish gate) instead.
+
+### 7. ⛔ CONTEXT-CLEAR GATE — STOP HERE
+
+Tell the user:
 
 > Task NN complete and committed. **Clear the context now** (`/clear`) before starting the next task — this is the whole point of the workflow. Then run `/next-task` in a fresh session.
 
 **Do NOT proceed to the next task in the same conversation**, even if the user asks. Politely remind them to clear the context first. The one-task-per-context rule is the reason this skill exists.
+
+### 8. ⛔ FINISH GATE — LAST TASK DONE
+
+This was the final task. Do **not** run the cleanup or open a PR until the user has explicitly approved.
+
+1. Tell the user the feature plan is complete and list what's about to happen:
+   - Delete `.tasks/TODO.md` and the `.tasks/` directory.
+   - Create a `chore: finish <feature-name>` commit.
+   - Push the branch and open a draft PR.
+2. Ask: **"OK to finish up and open a draft PR, or hold off?"**
+3. Wait for explicit approval before continuing.
+4. On approval, run the cleanup commit:
+
+        git rm .tasks/TODO.md
+        rmdir .tasks
+        git add -A
+        git commit -m "chore: finish <feature-name>"
+
+5. Push the branch and open a **draft** PR (e.g. `gh pr create --draft`). Use the feature name for the title and summarise the completed tasks in the body. Return the PR URL to the user.
 
 ## Tips
 
@@ -77,3 +96,4 @@ After the commit succeeds, tell the user:
 - Keep commits atomic — one task per commit.
 - The approval gate is a hard stop, even when everything passes and the work feels obviously complete.
 - The context-clear gate is also a hard stop. If the user says "just do the next one too", respond that this defeats the workflow and ask them to clear first.
+- The finish gate is a hard stop too — never run the cleanup commit or open the PR without explicit approval.
