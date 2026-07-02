@@ -9,7 +9,8 @@ A small Claude Code plugin bundling three workflow skills:
 ## Install
 
 ```
-/plugin install https://github.com/tobico/tobico-skills
+/plugin marketplace add tobico/tobico-skills
+/plugin install tobico-skills@tobico-skills
 ```
 
 Once installed, invoke the skills by name: `/to-tasks`, `/next-task`, `/confirm`. If a name collides with something else in your setup, use the namespaced form: `/tobico-skills:next-task`.
