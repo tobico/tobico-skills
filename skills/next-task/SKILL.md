@@ -45,7 +45,7 @@ When the acceptance criteria are met, **stop and go to step 4**. Do not proceed 
 > This is a hard stop. Do **not** run `git commit` or any step below this line until the user has explicitly said to proceed.
 
 1. Summarise what was done (files changed, tests added, behaviour delivered, criteria met).
-2. In a plain-text message, ask: **"Shall I proceed with the commit, or are changes needed first?"** Do not use `AskUserQuestion` here; the user prefers to reply with free-form text.
+2. Ask: **"OK to proceed with the commit, or are changes needed first?"**
 3. Wait for the response before doing anything else.
 4. If changes are requested, make them and return to step 4.2.
 5. Only move to step 5 once the user's answer is an explicit approval.
