@@ -59,7 +59,7 @@ Delete the task file, check off the entry in `TODO.md`, then commit both alongsi
     git add -A
     git commit -m "<type>: <task summary>
 
-    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+    Co-Authored-By: Claude <noreply@anthropic.com>"
 
 Choose a conventional-commit type (`feat`, `fix`, `refactor`, `test`, `docs`, `chore`).
 
