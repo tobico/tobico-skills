@@ -41,5 +41,5 @@ Before writing any code, align with the user on what the task actually is.
 1. ...
 2. ...
 
-Ready to proceed once you confirm.
+OK to proceed?
 ```
