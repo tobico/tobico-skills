@@ -21,7 +21,7 @@ If `.tasks/` already exists and contains task files, stop and tell the user. Eit
 
 Work from whatever is already in the conversation context. If the user passes a plan/spec/PRD reference (path, URL), read it in full.
 
-**Roadmap stage briefs**: if the input is a stage brief from a `/to-roadmap` roadmap (`docs/roadmaps/<name>/NN-*.md`), also read the roadmap's `ROADMAP.md` and whatever the brief's "Decisions in force" references. The brief's "Proposed tasks" section is the *draft* breakdown for step 4 — but it was written ahead of time, so before trusting it, check every item under the brief's "Re-verify at start" against the actual codebase and adjust the breakdown for drift. In step 5, present what changed relative to the brief rather than inventing from scratch. In step 8, include any `ROADMAP.md` status updates in the plan commit.
+**Roadmap stage briefs**: if the input is a stage brief from a `/to-roadmap` roadmap (`docs/roadmaps/<name>/NN-*.md`), also read the roadmap's `ROADMAP.md` and whatever the brief's "Decisions in force" references. The brief's "Proposed tasks" section is the *draft* breakdown for step 4 — but it was written ahead of time, so before trusting it, check every item under the brief's "Re-verify at start" against the actual codebase and adjust the breakdown for drift. In step 5, present what changed relative to the brief rather than inventing from scratch. In step 7, record the stage in `TODO.md` via the `Roadmap stage:` line (see the template) so `/next-task` can mark the stage complete at the finish gate. In step 8, include any `ROADMAP.md` status updates in the plan commit.
 
 ### 3. Explore the codebase (optional)
 
@@ -78,6 +78,10 @@ Create `.tasks/` and write:
 # <Feature name>
 
 <1-2 paragraph description of what's being built and why.>
+
+<If planning from a roadmap stage brief, include this line exactly (it is how
+/next-task finds the stage to mark complete); omit it otherwise:>
+Roadmap stage: [NN: <stage title>](<repo-root-relative path to the stage brief>)
 
 ## Tasks
 

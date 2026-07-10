@@ -75,20 +75,24 @@ Tell the user:
 
 This was the final task. Do **not** run the cleanup or open a PR until the user has explicitly approved.
 
-1. Tell the user the feature plan is complete and list what's about to happen:
+1. Check `.tasks/TODO.md` for a `Roadmap stage:` line. If present, this feature is a roadmap stage (see `/to-roadmap`): resolve the linked brief's roadmap (`ROADMAP.md` in the same directory) — the finish commit will mark that stage's entry `[x]` and drop its in-progress annotation.
+2. Tell the user the feature plan is complete and list what's about to happen:
    - Delete `.tasks/TODO.md` and the `.tasks/` directory.
+   - If this was a roadmap stage: mark the stage complete in its `ROADMAP.md`.
    - Create a `chore: finish <feature-name>` commit.
    - Push the branch and open a draft PR.
-2. Ask: **"OK to finish up and open a draft PR, or hold off?"**
-3. Wait for explicit approval before continuing.
-4. On approval, run the cleanup commit:
+3. Ask: **"OK to finish up and open a draft PR, or hold off?"**
+4. Wait for explicit approval before continuing.
+5. On approval, mark the roadmap stage complete (if applicable), then run the cleanup commit:
 
+        # if a roadmap stage: edit docs/roadmaps/<name>/ROADMAP.md —
+        # "- [ ] NN: ... *(in progress ...)*" → "- [x] NN: ..."
         git rm .tasks/TODO.md
         rmdir .tasks
         git add -A
         git commit -m "chore: finish <feature-name>"
 
-5. Push the branch and open a **draft** PR (e.g. `gh pr create --draft`). Use the feature name for the title and summarise the completed tasks in the body. Return the PR URL to the user.
+6. Push the branch and open a **draft** PR (e.g. `gh pr create --draft`). Use the feature name for the title and summarise the completed tasks in the body; if this was a roadmap stage, name the stage and roadmap. Return the PR URL to the user.
 
 ## Tips
 

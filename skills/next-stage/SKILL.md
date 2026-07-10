@@ -17,9 +17,9 @@ If `.tasks/` exists and contains numbered task files, stop and tell the user —
 
 Find `docs/roadmaps/*/ROADMAP.md` files with unchecked stages. If the user named a roadmap in their invocation, use that one; if exactly one roadmap has open stages, use it; if several do, ask which.
 
-### 3. Reconcile stage status
+### 3. Reconcile stage status (fallback)
 
-If a stage is annotated as in progress in `ROADMAP.md` but `.tasks/` is empty, that stage's feature finished (verify: its PR merged, or its commits are on the main branch). Update its entry to `[x]` and drop the annotation. Don't commit yet — this edit rides in the new stage's plan commit (step 5). If the in-progress stage did NOT actually finish (branch abandoned, PR closed), surface that to the user instead of ticking it.
+Normally `/next-task`'s finish gate marks a stage complete in `ROADMAP.md` when its final task lands, so nothing to do here. But if a stage is still annotated as in progress while `.tasks/` is empty (a finish gate was skipped, or the stage predates the finish-gate behaviour), reconcile: verify the stage's feature actually finished (its PR merged, or its commits are on the main branch), then update its entry to `[x]` and drop the annotation. Don't commit yet — this edit rides in the new stage's plan commit (step 5). If the in-progress stage did NOT actually finish (branch abandoned, PR closed), surface that to the user instead of ticking it.
 
 If every stage is checked, the roadmap is complete — tell the user and stop. The roadmap directory stays as a historical record.
 
