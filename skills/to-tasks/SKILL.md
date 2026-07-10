@@ -1,6 +1,6 @@
 ---
 name: to-tasks
-description: Break a plan, spec, or PRD into sequential local task files under .tasks/, checked into the repo. Use when user wants to convert a plan into a local task backlog, break a feature into sequential chunks, or set up work without GitHub issues. Companion to /next-task.
+description: Break a plan, spec, PRD, or roadmap stage brief into sequential local task files under .tasks/, checked into the repo. Use when user wants to convert a plan into a local task backlog, break a feature into sequential chunks, or set up work without GitHub issues. Companion to /next-task and /next-stage.
 ---
 
 # To Tasks
@@ -20,6 +20,8 @@ If `.tasks/` already exists and contains task files, stop and tell the user. Eit
 ### 2. Gather context
 
 Work from whatever is already in the conversation context. If the user passes a plan/spec/PRD reference (path, URL), read it in full.
+
+**Roadmap stage briefs**: if the input is a stage brief from a `/to-roadmap` roadmap (`docs/roadmaps/<name>/NN-*.md`), also read the roadmap's `ROADMAP.md` and whatever the brief's "Decisions in force" references. The brief's "Proposed tasks" section is the *draft* breakdown for step 4 — but it was written ahead of time, so before trusting it, check every item under the brief's "Re-verify at start" against the actual codebase and adjust the breakdown for drift. In step 5, present what changed relative to the brief rather than inventing from scratch. In step 8, include any `ROADMAP.md` status updates in the plan commit.
 
 ### 3. Explore the codebase (optional)
 
