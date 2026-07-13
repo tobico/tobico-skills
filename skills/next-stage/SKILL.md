@@ -19,7 +19,7 @@ Find `docs/roadmaps/*/ROADMAP.md` files with unchecked stages. If the user named
 
 ### 3. Reconcile stage status (fallback)
 
-Normally `/next-task`'s finish gate marks a stage complete in `ROADMAP.md` when its final task lands, so nothing to do here. But if a stage is still annotated as in progress while `.tasks/` is empty (a finish gate was skipped, or the stage predates the finish-gate behaviour), reconcile: verify the stage's feature actually finished (its PR merged, or its commits are on the main branch), then update its entry to `[x]` and drop the annotation. Don't commit yet — this edit rides in the new stage's plan commit (step 5). If the in-progress stage did NOT actually finish (branch abandoned, PR closed), surface that to the user instead of ticking it.
+Normally `/next-task`'s finish gate marks a stage complete in `ROADMAP.md` when its final task lands, so nothing to do here. But if a stage is still annotated as in progress while `.tasks/` is empty (a finish gate was skipped, or the stage predates the finish-gate behaviour), reconcile: verify the stage's work actually landed on the repo's default branch — the universal done-signal, regardless of review process (a merged PR and a direct merge both satisfy it). Then update its entry to `[x]` and drop the annotation. Don't commit yet — this edit rides in the new stage's plan commit (step 5). If the stage's commits are NOT on the default branch (branch abandoned, PR closed, merge never happened), surface that to the user instead of ticking it.
 
 If every stage is checked, the roadmap is complete — tell the user and stop. The roadmap directory stays as a historical record.
 

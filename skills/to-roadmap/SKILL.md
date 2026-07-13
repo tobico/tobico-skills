@@ -5,7 +5,7 @@ description: Convert a large plan or design into a staged roadmap under docs/roa
 
 # To Roadmap
 
-Break a large effort into sequential **stages**, checked into `docs/roadmaps/<name>/`. A roadmap is to stages what a `/to-tasks` plan is to tasks, one level up: each stage later becomes exactly one `/to-tasks` feature (one branch, one PR), started via `/next-stage`.
+Break a large effort into sequential **stages**, checked into `docs/roadmaps/<name>/`. A roadmap is to stages what a `/to-tasks` plan is to tasks, one level up: each stage later becomes exactly one `/to-tasks` feature (one branch, one review unit), started via `/next-stage`.
 
 ## Why briefs, not task files
 
@@ -24,7 +24,7 @@ Work from the conversation — ideally this runs at the end of a planning/grilli
 
 Split the effort into sequential stages. Each stage must be:
 
-- **One feature's worth of work** — a handful of `/to-tasks` tasks, one branch, one reviewable PR
+- **One feature's worth of work** — a handful of `/to-tasks` tasks, one branch, finished via the project's review process
 - **Independently shippable** — the codebase is healthy and the trunk deployable after each stage merges
 - **Ordered** — later stages may depend on earlier ones; note genuine cross-stage dependencies in the roadmap index (unlike tasks, stages may be reorderable, and the index should say which)
 
@@ -44,7 +44,7 @@ Create `docs/roadmaps/<name>/` and write:
 
 <1-2 paragraphs: what this effort realizes, linking the design/plan docs it derives from.>
 
-Each stage is one `/to-tasks` feature (one branch, one PR). Start the next one with `/next-stage` in a fresh session. Task chunkings inside briefs are provisional — re-grounded against the codebase when the stage starts.
+Each stage is one `/to-tasks` feature (one branch, one review unit). Start the next one with `/next-stage` in a fresh session. Task chunkings inside briefs are provisional — re-grounded against the codebase when the stage starts.
 
 <Dependency notes: which stages are reorderable, which genuinely depend on which.>
 
@@ -86,7 +86,7 @@ NN landed first").>
 
 ### 5. Commit
 
-Commit the roadmap directory along with any design docs, ADRs, or CONTEXT.md changes the planning session produced. If a feature branch for the first stage already exists, commit there; otherwise commit wherever the planning docs belong (typically a planning branch or the current feature branch — not directly to main if the repo uses PRs).
+Commit the roadmap directory along with any design docs, ADRs, or CONTEXT.md changes the planning session produced. If a feature branch for the first stage already exists, commit there; otherwise commit wherever the planning docs belong — typically a planning branch or the current feature branch. Committing straight to the default branch is fine only if the project's review process is direct-merge (see `docs/agents/review-process.md`); if it uses PRs or another review unit, put the docs on a branch.
 
 Then tell the user:
 
