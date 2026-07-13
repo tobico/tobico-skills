@@ -76,19 +76,12 @@ Tell the user:
 This was the final task. Do **not** run the cleanup or finish the feature until the user has explicitly approved.
 
 1. Check `.tasks/TODO.md` for a `Roadmap stage:` line. If present, this feature is a roadmap stage (see `/to-roadmap`): resolve the linked brief's roadmap (`ROADMAP.md` in the same directory) — the finish commit will mark that stage's entry `[x]` and drop its in-progress annotation.
-2. **Resolve the review process.** Read `docs/agents/review-process.md`:
-   - **If it exists**, its `## Finish sequence` section defines how this feature is landed. Use it in step 7.
-   - **If it's missing**, ask the user which process this project uses, offering three choices:
-     - **GitHub PR** — push the branch and open a draft PR.
-     - **None** — merge the finished branch directly to the default branch.
-     - **Free text** — the user describes their own process (e.g. Bitbucket).
-
-     Then create `docs/agents/review-process.md` from the `<review-process-template>` below, writing the chosen finish sequence into it. The new file is committed as part of the finish commit in step 6.
+2. **Resolve the review process.** Read the `## Review process` → `### Finish sequence` of `docs/agents/git-workflow.md`. If the file or that section is missing, invoke `/setup-tobico-skills` scoped to review process to configure it, then re-read. Those recorded steps are what you run in step 7. A newly written `git-workflow.md` rides in the finish commit (step 6).
 3. Tell the user the feature plan is complete and list what's about to happen:
    - Delete `.tasks/TODO.md` and the `.tasks/` directory.
    - If this was a roadmap stage: mark the stage complete in its `ROADMAP.md`.
-   - Create a `chore: finish <feature-name>` commit (including `docs/agents/review-process.md` if it was just created).
-   - Run the project's finish sequence (from `review-process.md`).
+   - Create a `chore: finish <feature-name>` commit (including `docs/agents/git-workflow.md` if setup just wrote it).
+   - Run the project's finish sequence (from `git-workflow.md`).
 4. Ask: **"OK to finish up and land this via `<review process>`, or hold off?"**
 5. Wait for explicit approval before continuing.
 6. On approval, mark the roadmap stage complete (if applicable), then run the cleanup commit:
@@ -97,41 +90,10 @@ This was the final task. Do **not** run the cleanup or finish the feature until 
         # "- [ ] NN: ... *(in progress ...)*" → "- [x] NN: ..."
         git rm .tasks/TODO.md
         rmdir .tasks
-        git add -A          # also stages docs/agents/review-process.md if newly created
+        git add -A          # also stages docs/agents/git-workflow.md if newly written
         git commit -m "chore: finish <feature-name>"
 
-7. Run the project's **finish sequence** from `docs/agents/review-process.md`. The two built-in sequences:
-
-   - **GitHub PR**: push the branch and open a **draft** PR (`gh pr create --draft`). Use the feature name for the title and summarise the completed tasks in the body; if this was a roadmap stage, name the stage and roadmap. Return the PR URL to the user.
-   - **None (direct merge)**: land the branch on the repo's default branch, then delete it locally (never push the feature branch in this mode):
-
-            default=$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed 's@^origin/@@')
-            default=${default:-main}
-            feature=$(git branch --show-current)
-            git switch "$default"
-            git merge --no-ff "$feature"
-            git push               # only if a remote exists
-            git branch -d "$feature"
-
-   For a free-text / custom process, follow the steps written in the file's `## Finish sequence`.
-
-<review-process-template>
-# Review process
-
-<!-- How a completed feature branch is finished and landed on this project. -->
-
-## Finish sequence
-
-<Ordered steps the finish gate runs to land a finished feature branch. E.g. for
-GitHub: push the branch and open a draft PR via `gh pr create --draft`. For
-direct merge: switch to the default branch, `git merge --no-ff` the feature
-branch, push (if a remote exists), delete the local feature branch.>
-
-## Notes
-
-<Anything the agent should know: default branch name, draft vs ready-for-review,
-forge CLI quirks (e.g. Bitbucket uses a different command), etc.>
-</review-process-template>
+7. Run the **finish sequence** recorded in `docs/agents/git-workflow.md` step by step. When a step opens a PR, supply the context you have: title = feature name, body = summary of the completed tasks, and — if this was a roadmap stage — name the stage and roadmap. Return any PR URL to the user.
 
 ## Tips
 

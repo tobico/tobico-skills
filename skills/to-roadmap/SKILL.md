@@ -86,7 +86,7 @@ NN landed first").>
 
 ### 5. Commit
 
-Commit the roadmap directory along with any design docs, ADRs, or CONTEXT.md changes the planning session produced. If a feature branch for the first stage already exists, commit there; otherwise commit wherever the planning docs belong — typically a planning branch or the current feature branch. Committing straight to the default branch is fine only if the project's review process is direct-merge (see `docs/agents/review-process.md`); if it uses PRs or another review unit, put the docs on a branch.
+Commit the roadmap directory along with any design docs, ADRs, or CONTEXT.md changes the planning session produced. If a feature branch for the first stage already exists, commit there; otherwise commit wherever the planning docs belong — typically a planning branch or the current feature branch. Committing straight to the default branch is fine only if the project's review process is direct-merge (see the `## Review process` section of `docs/agents/git-workflow.md`); if it uses PRs or another review unit, put the docs on a branch.
 
 Then tell the user:
 

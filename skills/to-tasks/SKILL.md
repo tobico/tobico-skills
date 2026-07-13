@@ -63,9 +63,13 @@ Check the current branch:
 
     git branch --show-current
 
-If on `main`, `master`, or `develop`, switch to a new feature branch named `<slug>/<feature-name>` where `<slug>` is the git user handle (`git config user.name`).
-
 If already on a non-main branch, stay on it — the user has picked the branch deliberately.
+
+If on `main`, `master`, or `develop`, create a new feature branch using the project's branch-naming convention:
+
+1. Read the `## Branch naming` section of `docs/agents/git-workflow.md` for a `Pattern:` line. If the file or that section is missing, invoke `/setup-tobico-skills` scoped to branch naming to configure it, then re-read.
+2. Substitute the pattern's tokens: `<feature>` = the kebab-case feature name above. If the pattern contains `<handle>`, read the developer handle from `git config --global tobico.handle`; if it's unset, invoke `/setup-tobico-skills` (it will capture and store the handle), then re-read.
+3. Switch to the resulting branch name.
 
 ### 7. Write the task files
 
@@ -112,6 +116,7 @@ If the planning conversation produced changes to `CONTEXT.md`, ADRs under `docs/
 
     git status                     # confirm what's being committed
     git add .tasks/ CONTEXT.md docs/adr/  # plus any other touched docs
+    # also stage docs/agents/git-workflow.md if setup created/updated it
     git commit -m "chore: plan <feature-name> tasks"
 
 Then tell the user:
