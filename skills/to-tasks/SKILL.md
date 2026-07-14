@@ -47,7 +47,7 @@ Present the proposed breakdown as a numbered list. For each task, show:
 - **What**: one-line description
 - **Key acceptance criteria**: 2-3 bullets
 
-Ask the user:
+Ask the user (using the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md)):
 
 - Does the granularity feel right? (too coarse / too fine)
 - Should any tasks be merged, split, or reordered?

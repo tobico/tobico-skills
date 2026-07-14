@@ -25,7 +25,9 @@ Assume the feature branch is already checked out (created by `/to-tasks` when th
 
 Read the full task file. Summarise the goal in 2-3 sentences before writing any code. Note the acceptance criteria — they define "done".
 
-If the task is genuinely vague, ask ONE clarifying question before starting. Don't over-engineer based on assumptions.
+If the task is genuinely vague, ask ONE clarifying question before starting, using the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md). Don't over-engineer based on assumptions.
+
+The same applies to any detail question that comes up mid-task: label it and offer options with a recommendation. (The approval and finish gates below are plain "OK to proceed?" confirmations, not grammar questions.)
 
 ### 3. Implement
 

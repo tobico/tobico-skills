@@ -30,7 +30,7 @@ Split the effort into sequential stages. Each stage must be:
 
 ### 3. Quiz the user
 
-Present the stage list (title + one-line goal each). Ask whether the boundaries and order feel right, and iterate until approved.
+Present the stage list (title + one-line goal each). Ask whether the boundaries and order feel right, using the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md), and iterate until approved.
 
 ### 4. Write the roadmap
 
