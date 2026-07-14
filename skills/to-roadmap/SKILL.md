@@ -7,6 +7,10 @@ description: Convert a large plan or design into a staged roadmap under docs/roa
 
 Break a large effort into sequential **stages**, checked into `docs/roadmaps/<name>/`. A roadmap is to stages what a `/to-tasks` plan is to tasks, one level up: each stage later becomes exactly one `/to-tasks` feature (one branch, one review unit), started via `/next-stage`.
 
+## Asking questions
+
+Whenever you put a question to the user — the quiz in step 3, or an ad-hoc question when something is unclear or has drifted — use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md): label it `Qn`, and where there are discrete choices, offer them as `.N` options with a `★` recommendation.
+
 ## Why briefs, not task files
 
 The planning session's context is richest **now** and evaporates at the next `/clear` — but detailed task slicing goes stale as earlier stages land and the codebase moves. So a roadmap splits the difference:
@@ -30,7 +34,7 @@ Split the effort into sequential stages. Each stage must be:
 
 ### 3. Quiz the user
 
-Present the stage list (title + one-line goal each). Ask whether the boundaries and order feel right, using the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md), and iterate until approved.
+Present the stage list (title + one-line goal each). Ask whether the boundaries and order feel right, and iterate until approved.
 
 ### 4. Write the roadmap
 

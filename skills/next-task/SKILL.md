@@ -11,6 +11,10 @@ The most important thing this skill enforces: **one task per context window**. A
 
 `.tasks/` holds one feature's plan at a time.
 
+## Asking questions
+
+Whenever you put a question to the user — one of the steps below, or an ad-hoc question when something is unclear or has drifted (a vague task, a detail that surfaces mid-work) — use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md): label it `Qn`, and where there are discrete choices, offer them as `.N` options with a `★` recommendation. The one exception is the approval and finish gates below — they're fixed "OK to proceed?" confirmations, not grammar questions.
+
 ## Workflow
 
 ### 1. Find the next task
@@ -25,9 +29,7 @@ Assume the feature branch is already checked out (created by `/to-tasks` when th
 
 Read the full task file. Summarise the goal in 2-3 sentences before writing any code. Note the acceptance criteria — they define "done".
 
-If the task is genuinely vague, ask ONE clarifying question before starting, using the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md). Don't over-engineer based on assumptions.
-
-The same applies to any detail question that comes up mid-task: label it and offer options with a recommendation. (The approval and finish gates below are plain "OK to proceed?" confirmations, not grammar questions.)
+If the task is genuinely vague, ask ONE clarifying question before starting. Don't over-engineer based on assumptions.
 
 ### 3. Implement
 

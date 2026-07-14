@@ -12,6 +12,10 @@ Owns the per-project git-workflow conventions the tobico skills read. Everything
 
 Sections are filled **on demand**: a section counts as configured only when it has real content, not just a heading.
 
+## Asking questions
+
+Whenever you put a question to the user — a convention menu, the handle prompt, or an ad-hoc question when something is unclear — use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md): label it `Qn`, and where there are discrete choices, offer them as `.N` options with a `★` recommendation. See the menu note below for how this applies to the convention menus.
+
 ## Invocation
 
 - **Directly (`/setup-tobico-skills`)** — proactive full setup: walk *every* section, showing the current value where one exists and offering keep-or-change, and write the complete file.

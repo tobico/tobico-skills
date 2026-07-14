@@ -7,6 +7,10 @@ description: Build and sharpen a project's domain model. Use when the user wants
 
 Actively build and sharpen the project's domain model as you design. This is the *active* discipline — challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely *reading* `CONTEXT.md` for vocabulary is not this skill — that's a one-line habit any skill can do. This skill is for when you're changing the model, not just consuming it.)
 
+## Asking questions
+
+Whenever you put a question to the user — a glossary challenge, a "which is it?", a scenario to resolve — use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md): label it `Qn`, and where the choice is between candidate readings (e.g. Customer vs User), offer them as `.N` options with a `★` recommendation.
+
 ## File structure
 
 Most repos have a single context:
@@ -40,8 +44,6 @@ If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The ma
 Create files lazily — only when you have something to write. If no `CONTEXT.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
 
 ## During the session
-
-When you put a question to the user — a challenge, a "which is it?", a scenario to resolve — use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md): label it `Qn`, and where the choice is between candidate readings (e.g. Customer vs User), offer them as `.N` options with a recommendation.
 
 ### Challenge against the glossary
 

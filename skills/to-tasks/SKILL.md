@@ -11,6 +11,10 @@ Tasks are **always sequential** — no parallel work. Each task is worked one at
 
 Only one feature at a time — `.tasks/` holds the current feature's plan and is deleted when the feature is done.
 
+## Asking questions
+
+Whenever you put a question to the user — the quiz in step 5, or an ad-hoc question when something is unclear or has drifted (a stale roadmap brief, a plan that conflicts with the code) — use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md): label it `Qn`, and where there are discrete choices, offer them as `.N` options with a `★` recommendation.
+
 ## Process
 
 ### 1. Check for an existing plan
@@ -47,7 +51,7 @@ Present the proposed breakdown as a numbered list. For each task, show:
 - **What**: one-line description
 - **Key acceptance criteria**: 2-3 bullets
 
-Ask the user (using the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md)):
+Ask the user:
 
 - Does the granularity feel right? (too coarse / too fine)
 - Should any tasks be merged, split, or reordered?

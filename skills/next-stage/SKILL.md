@@ -7,6 +7,10 @@ description: Start the next stage of a roadmap under docs/roadmaps/ by convertin
 
 Start the next stage of a roadmap created by `/to-roadmap`: mark the previous stage done, hand the next stage's brief to the `/to-tasks` flow, and record the stage as in progress.
 
+## Asking questions
+
+Whenever you put a question to the user — one of the steps below, or an ad-hoc question when something is unclear or has drifted (a stale brief, an ambiguous roadmap state) — use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md): label it `Qn`, and where there are discrete choices, offer them as `.N` options with a `★` recommendation.
+
 ## Workflow
 
 ### 1. Guard: no feature in flight
@@ -15,7 +19,7 @@ If `.tasks/` exists and contains numbered task files, stop and tell the user —
 
 ### 2. Locate the roadmap
 
-Find `docs/roadmaps/*/ROADMAP.md` files with unchecked stages. If the user named a roadmap in their invocation, use that one; if exactly one roadmap has open stages, use it; if several do, ask which — using the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md).
+Find `docs/roadmaps/*/ROADMAP.md` files with unchecked stages. If the user named a roadmap in their invocation, use that one; if exactly one roadmap has open stages, use it; if several do, ask which.
 
 ### 3. Reconcile stage status (fallback)
 

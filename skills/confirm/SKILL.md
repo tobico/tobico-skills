@@ -7,6 +7,10 @@ description: Pause before writing code to summarize understanding of the task, a
 
 Before writing any code, align with the user on what the task actually is.
 
+## Asking questions
+
+Whenever you put a question to the user — one of the steps below, or an ad-hoc question when something is unclear — use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md): label it `Qn`, and where there are discrete choices, offer them as `.N` options with a `★` recommendation.
+
 ## Workflow
 
 1. **Summarize understanding** — In your own words, state:
@@ -15,7 +19,7 @@ Before writing any code, align with the user on what the task actually is.
    - The approach you'd take (key files, structure, libraries)
    - Any assumptions you're making
 
-2. **Ask clarifying questions** — Only ask about things that genuinely change the implementation. Skip questions whose answers won't affect the code. If you have no real questions, say so. When you ask, use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md).
+2. **Ask clarifying questions** — Only ask about things that genuinely change the implementation. Skip questions whose answers won't affect the code. If you have no real questions, say so.
 
 3. **Wait for confirmation** — Stop. Do not write or edit code. Do not run commands that modify state. Ask **"OK to proceed?"** and wait for the user to either confirm, correct, or redirect.
 
