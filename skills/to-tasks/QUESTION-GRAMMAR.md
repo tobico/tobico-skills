@@ -15,7 +15,7 @@ choices. When there are, provide a recommended answer.
 
 - **Questions** are numbered `Q1`, `Q2`, … **monotonically across the whole session** — never reset the counter per message, so `Q4` always refers to the same question when either of us points back to it.
 - **Sub-questions** append a letter: `Q7a`, `Q7b`. Use these when one question has distinct parts that each need their own answer.
-- **Answer options** append `.N`: a main question's options are `Q7.1`, `Q7.2`; a sub-question's are `Q7a.1`, `Q7a.2`. Mark your recommended option with `★`.
+- **Answer options** append `.N`: a main question's options are `Q7.1`, `Q7.2`; a sub-question's are `Q7a.1`, `Q7a.2`. Mark your recommended option by appending `★` directly to its number, e.g. `Q7.1★`.
 - A question node **may carry both its own options and sub-questions**. There's no ambiguity because main-level answers are always bare numbers and sub-level answers always carry a letter prefix (see the reply grammar).
 - **Two levels maximum.** A sub-question is always a leaf — it carries answer options, it never branches into further sub-questions. If a decision feels deeper than that, split it into separate top-level questions instead.
 
@@ -23,14 +23,14 @@ Example of a mixed node:
 
 ```
 Q11 — Which framing should the rewritten README take?
-      Q11.1  Personal curated suite   ★
-      Q11.2  Distribution-first catalog
+      Q11.1★  Personal curated suite
+      Q11.2   Distribution-first catalog
       Q11a — Keep the documented install command?
-             Q11a.1  Keep it   ★
-             Q11a.2  Change it
+             Q11a.1★  Keep it
+             Q11a.2   Change it
       Q11b — Keep the workflow walkthrough section?
-             Q11b.1  Keep it, updated   ★
-             Q11b.2  Drop it
+             Q11b.1★  Keep it, updated
+             Q11b.2   Drop it
 ```
 
 ## How I reply

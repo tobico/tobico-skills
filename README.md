@@ -75,18 +75,18 @@ When the last task lands, `next-task` finishes the feature via the project's con
 
 Several of these skills ask you questions using a shared labelling grammar, so you can answer tersely and unambiguously — especially on rounds where more than one thing is asked at once. `grilling` uses it throughout an interview; `to-tasks`, `to-roadmap`, `confirm`, `next-task`, `next-stage`, `setup-tobico-skills`, and `domain-modeling` use it whenever they ask.
 
-Questions are labelled `Qn` (monotonic across the session), sub-questions get a letter (`Qna`), and answer options get a `.N` suffix, with the recommendation marked `★`:
+Questions are labelled `Qn` (monotonic across the session), sub-questions get a letter (`Qna`), and answer options get a `.N` suffix, with the recommendation marked by a `★` on its number (e.g. `Q11.1★`):
 
 ```
 Q11 — Which framing should the rewritten README take?
-      Q11.1  Personal curated suite   ★
-      Q11.2  Distribution-first catalog
+      Q11.1★  Personal curated suite
+      Q11.2   Distribution-first catalog
       Q11a — Keep the documented install command?
-             Q11a.1  Keep it   ★
-             Q11a.2  Change it
+             Q11a.1★  Keep it
+             Q11a.2   Change it
       Q11b — Keep the workflow walkthrough section?
-             Q11b.1  Keep it, updated   ★
-             Q11b.2  Drop it
+             Q11b.1★  Keep it, updated
+             Q11b.2   Drop it
 ```
 
 Reply by keying to the labels:
