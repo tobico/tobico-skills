@@ -15,7 +15,7 @@ If `.tasks/` exists and contains numbered task files, stop and tell the user —
 
 ### 2. Locate the roadmap
 
-Find `docs/roadmaps/*/ROADMAP.md` files with unchecked stages. If the user named a roadmap in their invocation, use that one; if exactly one roadmap has open stages, use it; if several do, ask which.
+Find `docs/roadmaps/*/ROADMAP.md` files with unchecked stages. If the user named a roadmap in their invocation, use that one; if exactly one roadmap has open stages, use it; if several do, ask which — using the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md).
 
 ### 3. Reconcile stage status (fallback)
 

@@ -41,6 +41,8 @@ Create files lazily — only when you have something to write. If no `CONTEXT.md
 
 ## During the session
 
+When you put a question to the user — a challenge, a "which is it?", a scenario to resolve — use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md): label it `Qn`, and where the choice is between candidate readings (e.g. Customer vs User), offer them as `.N` options with a recommendation.
+
 ### Challenge against the glossary
 
 When the user uses a term that conflicts with the existing language in `CONTEXT.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"

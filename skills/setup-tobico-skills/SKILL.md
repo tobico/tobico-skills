@@ -23,6 +23,8 @@ Determine the scope from how you were invoked. If a caller named a section, do o
 
 Other skills never prompt for these conventions — they read the file or delegate here. Keep the menus and the canonical section text in this skill only.
 
+Present menus using the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md): label each menu `Qn`, its choices as `.N` options with the default marked `★`, and let the user free-type a custom answer.
+
 ## Branch naming
 
 The feature-branch pattern is stored as a token string on a `Pattern:` line. Supported tokens:

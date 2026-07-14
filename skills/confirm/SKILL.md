@@ -15,7 +15,7 @@ Before writing any code, align with the user on what the task actually is.
    - The approach you'd take (key files, structure, libraries)
    - Any assumptions you're making
 
-2. **Ask clarifying questions** — Only ask about things that genuinely change the implementation. Skip questions whose answers won't affect the code. If you have no real questions, say so.
+2. **Ask clarifying questions** — Only ask about things that genuinely change the implementation. Skip questions whose answers won't affect the code. If you have no real questions, say so. When you ask, use the question grammar in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md).
 
 3. **Wait for confirmation** — Stop. Do not write or edit code. Do not run commands that modify state. Ask **"OK to proceed?"** and wait for the user to either confirm, correct, or redirect.
 
@@ -38,8 +38,8 @@ Before writing any code, align with the user on what the task actually is.
 - Assumptions: ...
 
 **Questions:**
-1. ...
-2. ...
+Q1 — ...
+Q2 — ...
 
 OK to proceed?
 ```

@@ -71,9 +71,9 @@ When the last task lands, `next-task` finishes the feature via the project's con
 - `/confirm` — append to any request to make the agent summarise its understanding and stop for your go-ahead before touching code.
 - `/setup-tobico-skills` — run once per project to configure branch naming and the review process; `to-tasks` and `next-task` also trigger it on demand.
 
-## Grilling: how to answer
+## Answering questions
 
-The vendored `grilling` skill (behind `/grill-me` and `/grill-with-docs`) is locally modified to label its questions, so you can answer tersely and unambiguously — especially on the rare round where it has to ask more than one thing at once.
+Several of these skills ask you questions using a shared labelling grammar, so you can answer tersely and unambiguously — especially on rounds where more than one thing is asked at once. `grilling` uses it throughout an interview; `to-tasks`, `to-roadmap`, `confirm`, `next-task`, `next-stage`, `setup-tobico-skills`, and `domain-modeling` use it whenever they ask.
 
 Questions are labelled `Qn` (monotonic across the session), sub-questions get a letter (`Qna`), and answer options get a `.N` suffix, with the recommendation marked `★`:
 
@@ -98,13 +98,13 @@ Reply by keying to the labels:
 - `Q11.2` — an explicit label always wins, regardless of context
 - `*` — accept every `★` recommendation on the table
 
-Prose is always fine too — you can just answer in words instead of picking an option. The full spec lives in [`skills/grilling/SKILL.md`](./skills/grilling/SKILL.md).
+Prose is always fine too — you can just answer in words instead of picking an option. The full spec lives in [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md); each question-asking skill carries a synced copy (kept in step by `bin/question-grammar.sh`).
 
 ## Credits
 
 The five vendored skills (`grill-me`, `grill-with-docs`, `grilling`, `domain-modeling`, `tdd`) originate from [mattpocock/skills](https://github.com/mattpocock/skills), used under the MIT License. They're vendored — copied in and pinned — so upstream changes don't alter my daily workflow; the upstream copies have already diverged from these.
 
-`grilling` is **locally modified**: it adds a labelling and reply grammar for questions, sub-questions, and answer options, so multi-question rounds are easy to answer unambiguously. The rest are copied verbatim.
+`grilling` is **locally modified**: it uses a labelling and reply grammar for questions, sub-questions, and answer options, so multi-question rounds are easy to answer unambiguously. That grammar has been lifted out of `grilling` into a repo-level [`QUESTION-GRAMMAR.md`](./QUESTION-GRAMMAR.md) and is now reused across the suite (see [Answering questions](#answering-questions)). The rest are copied verbatim.
 
 The exact upstream commit each skill was vendored from is recorded in [`VENDOR.md`](./VENDOR.md).
 
