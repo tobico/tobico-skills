@@ -35,6 +35,26 @@ Q11 — Which framing should the rewritten README take?
              Q11b.2   Drop it
 ```
 
+## Pacing
+
+Pace by complexity, not question count. Each turn should carry about one turn's
+worth of decision effort — where effort is measured by what the answer costs
+*you*, the answerer, not me. Calibration anchors, per turn:
+
+- **~1 complex** question — weighs trade-offs, is open-ended, or has downstream consequences
+- **~3 medium** questions
+- **~5 simple** questions
+- **~10 trivial** questions — a fact, a name, a yes/no, or accepting an obvious default
+
+Mix freely (e.g. one medium plus a couple of trivial) as long as the total stays
+within one turn's budget. Batch independent questions up to that budget; the
+`Qn`/`.N` labels above keep a multi-question turn unambiguous, and `*` lets me
+accept every recommendation at once.
+
+Keep questions sequential only when a later question genuinely depends on an
+earlier answer — don't ask a question whose very wording would change based on an
+answer you're requesting in the same turn.
+
 ## How I reply
 
 - **Bare number** → the **main** question's option: `1` picks `Q11.1`; `1 because it's clearer` adds rationale.

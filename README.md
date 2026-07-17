@@ -42,7 +42,7 @@ The skills chain into one loop: **grill the plan → slice it into tasks → imp
 
 ### 1. Grill the plan
 
-Stress-test the plan before any code exists, resolving every open question one at a time:
+Stress-test the plan before any code exists, resolving every open question — batched by complexity rather than one slow question at a time:
 
 - `/grill-me` — a relentless interview, no docs written.
 - `/grill-with-docs` — the same, but captures decisions as ADRs and a glossary via `/domain-modeling`. Use this when the decisions deserve a durable record.
